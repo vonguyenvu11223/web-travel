@@ -1,4 +1,4 @@
-Travel & Tour Online Booking Next JS Template – a high-quality, meticulously organized solution for modern travel agencies.  Next Travel caters to a wide range of services including tours, activities/events, travel experiences, online reservations, holiday.
+Free Travel & Tour Online Booking Next JS Template – a high-quality, meticulously organized solution for modern travel agencies.  Next Travel caters to a wide range of services including tours, activities/events, travel experiences, online reservations, holiday.
 This is template only, for the backend, you can develop backend API by yourself or hire us (contact@joombooking.com)
 
 [Next Travel Demo](https://nexttravel.joombooking.com/) 
@@ -6,12 +6,12 @@ This is template only, for the backend, you can develop backend API by yourself 
 [Documentation](https://next-travel.gitbook.io/nextsj-travel-booking-theme)
 
 
-
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+npm i
 npm run dev
 # or
 yarn dev
