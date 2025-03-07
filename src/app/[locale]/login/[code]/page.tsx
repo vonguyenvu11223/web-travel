@@ -1,8 +1,4 @@
-import { NextAuthProvider } from "@/components/providers";
-import { authOptions } from "@/util/authOptions";
-import { getServerSession } from "next-auth";
-import ClientLoginWrapper from "./ClientLoginWrapper";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 const SignInPage = async ({ params }: { params: { code: string } }) => {
   const { code } = params;

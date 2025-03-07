@@ -1,23 +1,19 @@
-import ImageCustom from "@/components/image-custom";
-import {
-  IconCalendar
-} from "@/components/icons";
-import { DataFilter } from "@/types/filter";
-import PostProps from "@/types/post";
-import PostPreview from "@/components/post/post-preview";
-import { Link } from "@/navigation";
-import { notFound } from "next/navigation";
-
 import Date from "@/components/common/date";
-import SearchPost from "./search-post";
+import Pagination from "@/components/common/pagination";
 import EmptyResult from "@/components/emptyresult";
-import NextIntlProvider from "@/components/providers/NextIntlProvider";
-import { getTranslations } from "next-intl/server";
+import { IconCalendar } from "@/components/icons";
+import ImageCustom from "@/components/image-custom";
 import PageHeader from "@/components/page-header";
+import PostPreview from "@/components/post/post-preview";
+import NextIntlProvider from "@/components/providers/NextIntlProvider";
 import blogData from "@/data/blogData";
 import destinationData from "@/data/destinationData";
-import Pagination from "@/components/common/pagination";
-
+import { Link } from "@/navigation";
+import { DataFilter } from "@/types/filter";
+import PostProps from "@/types/post";
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import SearchPost from "./search-post";
 
 export interface ISearchProps {
   keyword: string | undefined;
@@ -27,8 +23,6 @@ interface IPostListProps {
   data: DataFilter<PostProps>;
   searchParams?: ISearchProps;
 }
-
-
 
 export default async function Blog({
   params,
@@ -42,17 +36,11 @@ export default async function Blog({
   const { slug } = params;
   if (!slug || slug.length < 0) return notFound();
 
-
-  const posts = blogData
-  const destinations = destinationData
-
+  const posts = blogData;
+  const destinations = destinationData;
 
   return (
-
-
     <>
-
-
       <PageHeader
         title="Write by traveler"
         sub_title="True local review by traveler"
@@ -65,7 +53,7 @@ export default async function Blog({
 
       <div className="container py-10">
         {/* list category */}
-        <div className="mb-12 grid-layout--small">
+        <div className="grid-layout--small mb-12">
           {destinations &&
             destinations.data.length > 0 &&
             destinations.data.map((destination: any) => (
@@ -78,18 +66,18 @@ export default async function Blog({
                 {destination.image && (
                   <ImageCustom
                     src={destination.image.src}
-                    className="object-cover w-full h-full rounded-lg"
+                    className="h-full w-full rounded-lg object-cover"
                     image_alt={destination?.title}
                   />
                 )}
-                <h1 className="absolute text-lg font-semibold text-center text-white -translate-x-1/2 bottom-8 left-1/2">
+                <h1 className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center text-lg font-semibold text-white">
                   {destination.title}
                 </h1>
               </Link>
             ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-12">
+        <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-12">
           {/* list products */}
           <div className="col-span-8 ">
             <h2 className="mb-26 relative h-8 border-b border-solid border-gray-300 text-xl font-semibold leading-6 before:absolute before:bottom-0 before:left-0 before:h-[4px] before:w-16 before:translate-y-1/2 before:bg-primary">
@@ -134,7 +122,7 @@ export default async function Blog({
                   {/* lisst item post */}
                   {posts.data &&
                     posts.data.length > 0 &&
-                    posts.data.slice(0, 3).map((post,index) => (
+                    posts.data.slice(0, 3).map((post, index) => (
                       <Link
                         href={`#`}
                         className="flex gap-2"
@@ -142,26 +130,26 @@ export default async function Blog({
                         aria-label={post?.title}
                       >
                         <div
-                          className="relative h-16 overflow-hidden text-center rounded-lg w-28"
+                          className="relative h-16 w-28 overflow-hidden rounded-lg text-center"
                           style={{ cursor: "pointer" }}
                         >
-                          <div className="w-full h-full rounded-lg group">
+                          <div className="group h-full w-full rounded-lg">
                             {post?.image && (
                               <ImageCustom
                                 src={post?.image.src}
-                                className="object-cover w-full h-full"
+                                className="h-full w-full object-cover"
                                 image_alt={post?.title}
                               />
                             )}
                           </div>
                         </div>
                         <div className="flex-1">
-                          <p className="flex items-center gap-1 mt-auto text-sm text-text3">
+                          <p className="mt-auto flex items-center gap-1 text-sm text-text3">
                             {" "}
-                            <IconCalendar className="w-2 h-2 fill-neutral-300 lg:h-3 lg:w-3" />
+                            <IconCalendar className="h-2 w-2 fill-neutral-300 lg:h-3 lg:w-3" />
                             <Date dateString={post?.date} />
                           </p>
-                          <h3 className="mb-2 text-sm font-semibold line-clamp-2 text-text1 hover:underline">
+                          <h3 className="mb-2 line-clamp-2 text-sm font-semibold text-text1 hover:underline">
                             {post?.title}
                           </h3>
                         </div>
@@ -176,4 +164,3 @@ export default async function Blog({
     </>
   );
 }
-
