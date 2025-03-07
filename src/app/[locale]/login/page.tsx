@@ -9,7 +9,7 @@ import NextIntlProvider from "@/components/providers/NextIntlProvider";
 import ButtonLogins from "@/components/login/buttonLogin";
 import { NextAuthProvider } from "@/components/providers";
 
-export interface ILoginProps { }
+export interface ILoginProps {}
 
 export default async function Login({
   params,
@@ -27,8 +27,8 @@ export default async function Login({
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 dark:bg-gray-900 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 rounded-lg bg-white p-8 shadow-md dark:bg-gray-800">
         <div>
           <h2 className="text-center text-3xl font-extrabold text-gray-900 dark:text-white">
             {t("login_get_exploring")}
@@ -42,13 +42,15 @@ export default async function Login({
             <LoginWithEmail callback={callback} />
           </NextAuthProvider>
         </NextIntlProvider>
-        <div className="flex items-center justify-center my-6">
+        <div className="my-6 flex items-center justify-center">
           <div className="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
-          <span className="mx-4 text-gray-500 dark:text-gray-400">or continue with</span>
+          <span className="mx-4 text-gray-500 dark:text-gray-400">
+            or continue with
+          </span>
           <div className="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
         </div>
         <ButtonLogins />
-        <div className="mt-4 text-sm text-center text-gray-600 dark:text-gray-400">
+        <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
           <div>
             <Link
               href={callback ? "#" : "/forgot-password"}
@@ -68,11 +70,17 @@ export default async function Login({
           </div>
           <div className="mt-4">
             {t("agree_account")}{" "}
-            <Link href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
               {t("terms_and_conditions")}
             </Link>
             ,{" "}
-            <Link href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
               {t("privacy_policy")}
             </Link>
           </div>
