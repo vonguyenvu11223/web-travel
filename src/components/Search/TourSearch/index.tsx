@@ -34,10 +34,10 @@ const TourSearch = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative flex w-full bg-white rounded-lg shadow-xl dark:shadow-2xl md:rounded-full "
+      className="relative flex w-full rounded-lg bg-white shadow-xl dark:shadow-2xl md:rounded-full "
     >
-      <div className="flex flex-col items-start w-full tour-search-one__inner gap-x-5 lg:flex-row lg:items-center">
-        <div className="relative flex flex-col items-center justify-center w-full p-2 md:flex-row md:p-0">
+      <div className="tour-search-one__inner flex w-full flex-col items-start gap-x-5 lg:flex-row lg:items-center">
+        <div className="relative flex w-full flex-col items-center justify-center p-2 md:flex-row md:p-0">
           {/* select destinations */}
           <LocationInput
             name="location"
@@ -50,11 +50,11 @@ const TourSearch = () => {
           />
           <div className="mx-[1px] hidden h-8 self-center border-r border-slate-200 dark:border-slate-700 md:block"></div>
           {/* select return date */}
-          <div className="relative w-full mb-3 md:mb-0 md:w-1/2">
+          <div className="relative mb-3 w-full md:mb-0 md:w-1/2">
             <DatePicker
               keyD={datePickerKey}
               name="date"
-              className="w-full h-full border-none rounded-full text-text1"
+              className="h-full w-full rounded-full border-none text-text1"
               placeholder={t("select_date")}
               autoFocus={focus}
               is_footer
@@ -64,18 +64,18 @@ const TourSearch = () => {
 
             <Button
               type="submit"
-              className="absolute hidden w-10 h-10 px-0 py-0 font-semibold text-white -translate-y-1/2 rounded-full right-5 top-1/2 bg-primary md:inline-flex"
+              className="absolute right-5 top-1/2 hidden h-10 w-10 -translate-y-1/2 rounded-full bg-primary px-0 py-0 font-semibold text-white md:inline-flex"
               aria-label={"Search"}
             >
-              <IconSearch className="w-4 h-4 font-semibold fill-white" />
+              <IconSearch className="h-4 w-4 fill-white font-semibold" />
             </Button>
           </div>
           <Button
             type="submit"
-            className="inline-flex w-full h-10 font-semibold text-white rounded-lg bg-primary md:hidden"
+            className="inline-flex h-10 w-full rounded-lg bg-primary font-semibold text-white md:hidden"
             aria-label={"Search"}
           >
-            <IconSearch className="w-4 h-4 font-semibold fill-white" />
+            <IconSearch className="h-4 w-4 fill-white font-semibold" />
           </Button>
         </div>
       </div>

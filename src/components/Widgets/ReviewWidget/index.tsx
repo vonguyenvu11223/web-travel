@@ -12,14 +12,14 @@ const ReviewWidget = async ({ className, code, locale }: WidgetProps) => {
   return (
     <div className={`py-12 sm:py-16 ${className}`}>
       {/* Header */}
-      <div className="mb-8 sm:mb-12 text-center">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-text1">
+      <div className="mb-8 text-center sm:mb-12">
+        <h2 className="text-2xl font-semibold text-text1 sm:text-3xl">
           {widget?.title}
         </h2>
 
         <Link
           href="/reviews"
-          className="mt-4 flex items-center justify-center text-primary cursor-pointer hover:underline"
+          className="mt-4 flex cursor-pointer items-center justify-center text-primary hover:underline"
         >
           <span className="mr-2 text-sm sm:text-base">View all reviews</span>
           <svg
@@ -28,7 +28,7 @@ const ReviewWidget = async ({ className, code, locale }: WidgetProps) => {
             viewBox="0 0 24 24"
             strokeWidth="2"
             stroke="currentColor"
-            className="w-5 h-5"
+            className="h-5 w-5"
           >
             <path
               strokeLinecap="round"
@@ -42,9 +42,9 @@ const ReviewWidget = async ({ className, code, locale }: WidgetProps) => {
       {/* Review Items */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {widget?.data &&
-          widget.data.slice(0, 3).map((item: any) => (
-            <ReviewItem key={item.id} review={item} />
-          ))}
+          widget.data
+            .slice(0, 3)
+            .map((item: any) => <ReviewItem key={item.id} review={item} />)}
       </div>
     </div>
   );

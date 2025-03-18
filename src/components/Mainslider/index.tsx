@@ -17,14 +17,14 @@ export default async function Mainslider(props: IMainsliderProps) {
 
   return (
     <div className="relative h-[55vh] w-full md:h-[60vh] ">
-      <div className="hidden w-full h-full md:block">
+      <div className="hidden h-full w-full md:block">
         <SwiperSlider />
       </div>
 
-      <div className="block w-full h-full md:hidden">
+      <div className="block h-full w-full md:hidden">
         <Image
           src={bg1}
-          className="object-cover w-full h-full"
+          className="h-full w-full object-cover"
           key={Math.random()}
           alt="Nextjs travel booking theme"
           loading="eager"
@@ -35,7 +35,7 @@ export default async function Mainslider(props: IMainsliderProps) {
       </div>
 
       {/* Tour */}
-      <div className="container absolute z-30 flex flex-col text-center text-white -translate-x-1/2 translate-y-1/2 bottom-1/2 left-1/2 md:bottom-1/2 lg:h-auto">
+      <div className="container absolute bottom-1/2 left-1/2 z-30 flex -translate-x-1/2 translate-y-1/2 flex-col text-center text-white md:bottom-1/2 lg:h-auto">
         {/* <p className="mb-4 text-sm md:text-base md:mb-2 text-secondary">
           Website is under development
         </p> */}
